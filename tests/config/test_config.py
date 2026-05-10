@@ -656,6 +656,7 @@ class TestPerModelMapping:
         assert Settings.parse_provider_type("lmstudio/qwen") == "lmstudio"
         assert Settings.parse_provider_type("llamacpp/model") == "llamacpp"
         assert Settings.parse_provider_type("ollama/llama3.1") == "ollama"
+        assert Settings.parse_provider_type("maxplus/gpt-5.4-mini") == "maxplus"
         assert Settings.parse_provider_type("wafer/DeepSeek-V4-Pro") == "wafer"
 
     def test_parse_model_name(self):
@@ -667,6 +668,7 @@ class TestPerModelMapping:
         assert Settings.parse_model_name("lmstudio/qwen") == "qwen"
         assert Settings.parse_model_name("llamacpp/model") == "model"
         assert Settings.parse_model_name("ollama/llama3.1") == "llama3.1"
+        assert Settings.parse_model_name("maxplus/gpt-5.4-mini") == "gpt-5.4-mini"
         assert Settings.parse_model_name("wafer/DeepSeek-V4-Pro") == "DeepSeek-V4-Pro"
 
     def test_configured_chat_model_refs_collects_unique_models_with_sources(

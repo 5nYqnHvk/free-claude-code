@@ -74,6 +74,12 @@ def _create_kimi(config: ProviderConfig, _settings: Settings) -> BaseProvider:
     return KimiProvider(config)
 
 
+def _create_maxplus(config: ProviderConfig, _settings: Settings) -> BaseProvider:
+    from providers.maxplus import MaxPlusProvider
+
+    return MaxPlusProvider(config)
+
+
 def _create_wafer(config: ProviderConfig, _settings: Settings) -> BaseProvider:
     from providers.wafer import WaferProvider
 
@@ -88,6 +94,7 @@ PROVIDER_FACTORIES: dict[str, ProviderFactory] = {
     "llamacpp": _create_llamacpp,
     "ollama": _create_ollama,
     "kimi": _create_kimi,
+    "maxplus": _create_maxplus,
     "wafer": _create_wafer,
 }
 

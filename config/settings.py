@@ -115,6 +115,9 @@ class Settings(BaseSettings):
     # ==================== Kimi Config ====================
     kimi_api_key: str = Field(default="", validation_alias="KIMI_API_KEY")
 
+    # ==================== MaxPlus Config ====================
+    maxplus_api_key: str = Field(default="", validation_alias="MAXPLUS_API_KEY")
+
     # ==================== Wafer Config ====================
     wafer_api_key: str = Field(default="", validation_alias="WAFER_API_KEY")
 
@@ -168,6 +171,7 @@ class Settings(BaseSettings):
     lmstudio_proxy: str = Field(default="", validation_alias="LMSTUDIO_PROXY")
     llamacpp_proxy: str = Field(default="", validation_alias="LLAMACPP_PROXY")
     kimi_proxy: str = Field(default="", validation_alias="KIMI_PROXY")
+    maxplus_proxy: str = Field(default="", validation_alias="MAXPLUS_PROXY")
     wafer_proxy: str = Field(default="", validation_alias="WAFER_PROXY")
 
     # ==================== Provider Rate Limiting ====================

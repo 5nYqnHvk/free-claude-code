@@ -18,6 +18,7 @@ from config.nim import NimSettings
 from providers.deepseek import DeepSeekProvider
 from providers.exceptions import ServiceUnavailableError, UnknownProviderTypeError
 from providers.lmstudio import LMStudioProvider
+from providers.maxplus import MaxPlusProvider
 from providers.nvidia_nim import NvidiaNimProvider
 from providers.ollama import OllamaProvider
 from providers.open_router import OpenRouterProvider
@@ -36,12 +37,14 @@ def _make_mock_settings(**overrides):
     mock.provider_max_concurrency = 5
     mock.open_router_api_key = "test_openrouter_key"
     mock.deepseek_api_key = "test_deepseek_key"
+    mock.maxplus_api_key = "test_maxplus_key"
     mock.wafer_api_key = "test_wafer_key"
     mock.lm_studio_base_url = "http://localhost:1234/v1"
     mock.ollama_base_url = "http://localhost:11434"
     mock.lmstudio_proxy = ""
     mock.llamacpp_proxy = ""
     mock.kimi_proxy = ""
+    mock.maxplus_proxy = ""
     mock.wafer_proxy = ""
     mock.nim = NimSettings()
     mock.http_read_timeout = 300.0
@@ -205,6 +208,19 @@ async def test_get_provider_wafer():
         assert isinstance(provider, WaferProvider)
         assert provider._base_url == "https://pass.wafer.ai/v1"
         assert provider._api_key == "test_wafer_key"
+
+
+@pytest.mark.asyncio
+async def test_get_provider_maxplus():
+    """Test that provider_type=maxplus returns MaxPlusProvider."""
+    with patch("api.dependencies.get_settings") as mock_settings:
+        mock_settings.return_value = _make_mock_settings(provider_type="maxplus")
+
+        provider = get_provider()
+
+        assert isinstance(provider, MaxPlusProvider)
+        assert provider._base_url == "https://api.maxplus-ai.cc/v1"
+        assert provider._api_key == "test_maxplus_key"
 
 
 @pytest.mark.asyncio

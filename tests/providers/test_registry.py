@@ -10,6 +10,7 @@ from providers.deepseek import DeepSeekProvider
 from providers.exceptions import UnknownProviderTypeError
 from providers.llamacpp import LlamaCppProvider
 from providers.lmstudio import LMStudioProvider
+from providers.maxplus import MaxPlusProvider
 from providers.nvidia_nim import NvidiaNimProvider
 from providers.ollama import OllamaProvider
 from providers.open_router import OpenRouterProvider
@@ -28,6 +29,7 @@ def _make_settings(**overrides):
     mock.nvidia_nim_api_key = "test_key"
     mock.open_router_api_key = "test_openrouter_key"
     mock.deepseek_api_key = "test_deepseek_key"
+    mock.maxplus_api_key = "test_maxplus_key"
     mock.wafer_api_key = "test_wafer_key"
     mock.lm_studio_base_url = "http://localhost:1234/v1"
     mock.llamacpp_base_url = "http://localhost:8080/v1"
@@ -37,6 +39,7 @@ def _make_settings(**overrides):
     mock.lmstudio_proxy = ""
     mock.llamacpp_proxy = ""
     mock.kimi_proxy = ""
+    mock.maxplus_proxy = ""
     mock.wafer_proxy = ""
     mock.provider_rate_limit = 40
     mock.provider_rate_window = 60
@@ -98,6 +101,7 @@ def test_create_provider_instantiates_each_builtin():
         "lmstudio": LMStudioProvider,
         "llamacpp": LlamaCppProvider,
         "ollama": OllamaProvider,
+        "maxplus": MaxPlusProvider,
         "wafer": WaferProvider,
     }
 

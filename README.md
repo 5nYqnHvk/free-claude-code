@@ -130,6 +130,7 @@ provider_id/model/name
 | --- | --- | --- | --- | --- |
 | <img src="https://cdn.simpleicons.org/nvidia/76B900" alt="" width="18" height="18">&nbsp;NVIDIA NIM | `nvidia_nim/...` | OpenAI chat translation | `NVIDIA_NIM_API_KEY` | `https://integrate.api.nvidia.com/v1` |
 | <img src="https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-avatar/avatars/kimi.webp" alt="" width="18" height="18">&nbsp;Kimi | `kimi/...` | OpenAI chat translation | `KIMI_API_KEY` | `https://api.moonshot.ai/v1` |
+| MaxPlus | `maxplus/...` | OpenAI chat translation | `MAXPLUS_API_KEY` | `https://api.maxplus-ai.cc/v1` |
 | <img src="https://wafer.ai/favicon.ico" alt="" width="18" height="18">&nbsp;[Wafer](https://wafer.ai) | `wafer/...` | Anthropic Messages | `WAFER_API_KEY` | `https://pass.wafer.ai/v1` |
 | <img src="https://cdn.simpleicons.org/openrouter/6C47FF" alt="" width="18" height="18">&nbsp;OpenRouter | `open_router/...` | Anthropic Messages | `OPENROUTER_API_KEY` | `https://openrouter.ai/api/v1` |
 | <img src="https://cdn.simpleicons.org/deepseek/4D6BFF" alt="" width="18" height="18">&nbsp;DeepSeek | `deepseek/...` | Anthropic Messages | `DEEPSEEK_API_KEY` | `https://api.deepseek.com/anthropic` |
@@ -170,6 +171,16 @@ MODEL="kimi/kimi-k2.5"
 ```
 
 Browse models at [platform.moonshot.ai](https://platform.moonshot.ai).
+
+</details>
+
+<details>
+<summary><b>MaxPlus</b></summary>
+
+```dotenv
+MAXPLUS_API_KEY="your-maxplus-key"
+MODEL="maxplus/gpt-5.4-mini"
+```
 
 </details>
 
@@ -424,6 +435,7 @@ Blank per-tier values inherit the fallback. Blank thinking overrides inherit `EN
 NVIDIA_NIM_API_KEY=""
 OPENROUTER_API_KEY=""
 DEEPSEEK_API_KEY=""
+MAXPLUS_API_KEY=""
 WAFER_API_KEY=""
 LM_STUDIO_BASE_URL="http://localhost:1234/v1"
 LLAMACPP_BASE_URL="http://localhost:8080/v1"
